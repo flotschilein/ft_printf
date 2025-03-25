@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handle_nums.c                                   :+:      :+:    :+:   */
+/*   ft_convert_hex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbraune <fbraune@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/24 19:50:56 by fbraune           #+#    #+#             */
-/*   Updated: 2025/03/25 15:43:23 by fbraune          ###   ########.fr       */
+/*   Created: 2025/03/25 13:28:34 by fbraune           #+#    #+#             */
+/*   Updated: 2025/03/25 15:34:35 by fbraune          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
-int	ft_handle_nums(long int n)
+int ft_convert_base16(size_t value, char *charset)
 {
-	int	len;
-	char digit;
+	int len;
 
 	len = 0;
-	if (n < 0)
-	{
-		write(1, '-', 1);
-		n = -n;
-		len++;
-	}
-	if (n > 9)
-		len = len + ft_handle_nums(n / 10);
-	digit = (n% 10) + '0';
-	write(1, &digit, 1);
+	if(value >= 16)
+		len = len + ft_convert_base16(value / 16 , charset);
+	write(1, &charset[value % 16],1);
 	len++;
-	return (len);
+
+	return(len);
 }
