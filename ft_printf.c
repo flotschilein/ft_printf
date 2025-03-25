@@ -6,7 +6,7 @@
 /*   By: fbraune <fbraune@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:58:39 by fbraune           #+#    #+#             */
-/*   Updated: 2025/03/25 18:12:34 by fbraune          ###   ########.fr       */
+/*   Updated: 2025/03/25 20:06:13 by fbraune          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ static int	ft_format(va_list args, const char str)
 	else if (str == 'u')
 		num = num + ft_handle_unsigned(va_arg(args, unsigned int));
 	else if (str == 'x')
-		num = num + ft_convert_base16(va_arg(args, unsigned int), "0123456789abcdef");
+		num = num + ft_convert_base16(va_arg(args, unsigned int),
+				"0123456789abcdef");
 	else if (str == 'X')
-		num = num + ft_convert_base16(va_arg(args, unsigned int), "0123456789ABCDEF");
+		num = num + ft_convert_base16(va_arg(args, unsigned int),
+				"0123456789ABCDEF");
 	else if (str == '%')
 		num = num + ft_handle_char('%');
 	return (num);
@@ -42,6 +44,7 @@ int	ft_printf(const char *str, ...)
 {
 	int		pos;
 	int		num;
+	int		res;
 	va_list	args;
 
 	pos = 0;
@@ -52,9 +55,12 @@ int	ft_printf(const char *str, ...)
 	while (str[pos] != '\0')
 	{
 		if (str[pos] == '%' && str[pos + 1] != '\0')
-			num = num + ft_format(args, str[++pos]);
+			res = ft_format(args, str[++pos]);
 		else
-			num = num + ft_handle_char(str[pos]);
+			res = ft_handle_char(str[pos]);
+		if(res == -1)
+			return(-1);
+		num = num + res;
 		pos++;
 	}
 	va_end(args);

@@ -6,7 +6,7 @@
 /*   By: fbraune <fbraune@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 16:34:40 by fbraune           #+#    #+#             */
-/*   Updated: 2025/03/25 18:15:12 by fbraune          ###   ########.fr       */
+/*   Updated: 2025/03/25 19:56:39 by fbraune          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int ft_handle_unsigned(unsigned int n)
 
 	len = 0;
 	if (n > 9)
-		len = len + ft_handle_nums(n / 10);
+		len = len + ft_handle_unsigned(n / 10);
 	digit = (n % 10) + '0';
 	write(1, &digit, 1);
 	len++;
