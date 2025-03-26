@@ -6,7 +6,7 @@
 /*   By: fbraune <fbraune@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:58:39 by fbraune           #+#    #+#             */
-/*   Updated: 2025/03/25 20:06:13 by fbraune          ###   ########.fr       */
+/*   Updated: 2025/03/26 16:42:56 by fbraune          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int	ft_printf(const char *str, ...)
 			res = ft_format(args, str[++pos]);
 		else
 			res = ft_handle_char(str[pos]);
-		if(res == -1)
-			return(-1);
+		if (res == -1)
+			return (-1);
 		num = num + res;
 		pos++;
 	}

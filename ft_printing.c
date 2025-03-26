@@ -6,7 +6,7 @@
 /*   By: fbraune <fbraune@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:39:39 by fbraune           #+#    #+#             */
-/*   Updated: 2025/03/25 20:10:23 by fbraune          ###   ########.fr       */
+/*   Updated: 2025/03/25 20:13:11 by fbraune          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	ft_handle_str(char *str)
 
 	len = 0;
 	if (!str)
-		return(ft_handle_str("(null)"));
+		return (ft_handle_str("(null)"));
 	while (str[len] != '\0')
 		len++;
-	if(write(1, str, len) == -1)
+	if (write(1, str, len) == -1)
 		return (-1);
 	return (len);
 }
