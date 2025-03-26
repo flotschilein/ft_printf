@@ -6,7 +6,7 @@
 /*   By: fbraune <fbraune@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:58:39 by fbraune           #+#    #+#             */
-/*   Updated: 2025/03/26 16:42:56 by fbraune          ###   ########.fr       */
+/*   Updated: 2025/03/26 17:45:03 by fbraune          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,3 +66,14 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (num);
 }
+
+// #include <stdio.h>
+// int main()
+// {
+// 	int printfres;
+// 	printfres = printf("%s", "hello world");
+// 	printf("%i\n", printfres);
+// 	int ftprintfres;
+// 	ftprintfres = ft_printf("%s", "hello world");
+// 	printf("%i\n", ftprintfres);
+// }

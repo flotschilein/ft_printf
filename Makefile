@@ -6,7 +6,7 @@
 #    By: fbraune <fbraune@student.42heilbronn.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/22 17:18:47 by fbraune           #+#    #+#              #
-#    Updated: 2025/03/25 16:45:00 by fbraune          ###   ########.fr        #
+#    Updated: 2025/03/26 16:53:14 by fbraune          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,13 @@ $(NAME): $(OBJ)
 
 %.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
 	$(RM) $(OBJ)
+
 fclean: clean
 	$(RM) $(NAME)
+
 re: fclean all
 
 .PHONY: all clean fclean re
