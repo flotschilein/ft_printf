@@ -6,7 +6,7 @@
 /*   By: fbraune <fbraune@student.42heilbronn.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:58:39 by fbraune           #+#    #+#             */
-/*   Updated: 2025/03/26 17:45:03 by fbraune          ###   ########.fr       */
+/*   Updated: 2025/03/28 15:56:12 by fbraune          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,25 @@
 
 static int	ft_format(va_list args, const char str)
 {
-	int	num;
-
-	num = 0;
 	if (str == 'c')
-		num = num + ft_handle_char(va_arg(args, int));
+		return (ft_handle_char(va_arg(args, int)));
 	else if (str == 's')
-		num = num + ft_handle_str(va_arg(args, char *));
+		return (ft_handle_str(va_arg(args, char *)));
 	else if (str == 'p')
-		num = num + ft_handle_ptr(va_arg(args, void *));
-	else if (str == 'd')
-		num = num + ft_handle_nums(va_arg(args, int));
-	else if (str == 'i')
-		num = num + ft_handle_nums(va_arg(args, int));
+		return (ft_handle_ptr(va_arg(args, void *)));
+	else if (str == 'd' || str == 'i')
+		return (ft_handle_nums(va_arg(args, int)));
 	else if (str == 'u')
-		num = num + ft_handle_unsigned(va_arg(args, unsigned int));
+		return (ft_handle_unsigned(va_arg(args, unsigned int)));
 	else if (str == 'x')
-		num = num + ft_convert_base16(va_arg(args, unsigned int),
-				"0123456789abcdef");
+		return (ft_convert_base16(va_arg(args, unsigned int),
+				"0123456789abcdef"));
 	else if (str == 'X')
-		num = num + ft_convert_base16(va_arg(args, unsigned int),
-				"0123456789ABCDEF");
+		return (ft_convert_base16(va_arg(args, unsigned int),
+				"0123456789ABCDEF"));
 	else if (str == '%')
-		num = num + ft_handle_char('%');
-	return (num);
+		return (ft_handle_char('%'));
+	return (0);
 }
 
 int	ft_printf(const char *str, ...)
@@ -68,12 +63,12 @@ int	ft_printf(const char *str, ...)
 }
 
 // #include <stdio.h>
-// int main()
+
+// int	main(void)
 // {
-// 	int printfres;
-// 	printfres = printf("%s", "hello world");
-// 	printf("%i\n", printfres);
-// 	int ftprintfres;
-// 	ftprintfres = ft_printf("%s", "hello world");
-// 	printf("%i\n", ftprintfres);
+// 	int	ftprintfres;
+
+// 	// int printfres;
+// 	// printfres = printf("%x", "hello world");
+// 	// printf("%i\n", printfres);
 // }
