@@ -2,7 +2,7 @@
 **A simplified printf implementation**  
 
 ![C](https://img.shields.io/badge/C-00599C?logo=c&logoColor=white)  
-
+![GitHub last commit](https://img.shields.io/github/last-commit/flotschilein/ft_printf)  
 ---
 
 ## **📖 Description**  
