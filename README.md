@@ -32,7 +32,11 @@ git clone https://github.com/flotschilein/ft_printf.git
 cd ft_printf
 make
 ```
-**Output:** `libftprintf.a`  
+**Make commands:**  
+- `make` → Compiles the library (`libft.a`)  
+- `make clean` → Removes object files  
+- `make fclean` → Removes `libft.a` + object files  
+- `make re` → Recompiles everything  
 
 ---
 
@@ -51,20 +55,6 @@ int main() {
     return 0;
 }
 ```
-
----
-
-## **🧠 Core Logic**  
-1. **Parsing**  
-   - Scans the format string for `%`.  
-   - Processes the next character as a specifier.  
-
-2. **Conversion**    
-   - Converts numbers to strings via `ft_itoa` (for `%d`/`%i`)  
-
-3. **Output**  
-   - Writes converted strings character-by-character using `write(1, ...)`.  
-
 ---
 
 ## **⚠️ Limitations **  
